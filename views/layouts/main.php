@@ -26,37 +26,47 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
+
+<!-- ===================================================== -->
+
+<?php
+	// plaats deze code in de main.php en vervang daarmee de standaard menu
+
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+      
+     // hier wordt het type en de stijl van de menu bepaald
+       'brandLabel' => Yii::$app->name,  // de naam van het menu
+       'brandUrl' => Yii::$app->homeUrl, // de home page waar je naar toe gaat als je op de naam klikt
+       'options' => [
+          'class' => 'navbar-inverse navbar-fixed-top', // de Bootstrap 4 style van het menu
         ],
+      
     ]);
+                  
+                  
     echo Nav::widget([
+      
+      // hier worden de menu's en menu items bepaald
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            [ 'label' => 'Country',
+                'items' => [
+                    ['label' => 'Overzicht', 'url' => ['/country/index', ''] ],
+                    ['label' => 'Voeg toe', 'url' => ['/country/index', ''] ],
+                    ['label' => 'Europa', 'url' => ['/country/index', ''] ],
+                ],
+            ],
         ],
     ]);
-    NavBar::end();
-    ?>
+                  
+   NavBar::end();
+ ?>
+
+<!-- ===================================================== -->
+
+
+
+<!-- -------------------------------------------- -->
 
     <div class="container">
         <?= Breadcrumbs::widget([
@@ -66,6 +76,8 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
+
+<!-- --------------------------------------------- -->
 
 <footer class="footer">
     <div class="container">

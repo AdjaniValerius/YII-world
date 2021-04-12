@@ -124,4 +124,11 @@ class CountryController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+// ================Routing les 2 oefening================
+
+    public function actionHello() {
+        echo "Hello World!";
+        exit;
+    }
 }
