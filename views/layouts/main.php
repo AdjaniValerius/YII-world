@@ -49,6 +49,20 @@ AppAsset::register($this);
       // hier worden de menu's en menu items bepaald
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
+            [ 'label' => 'City',
+                'items' => [
+                    ['label' => 'Overzicht', 'url' => ['/country/index', ''] ],
+                    ['label' => 'Voeg toe', 'url' => ['/country/index', ''] ],
+                ],
+            ],
+        ],
+    ]);
+
+     echo Nav::widget([
+      
+      // hier worden de menu's en menu items bepaald
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'items' => [
             [ 'label' => 'Country',
                 'items' => [
                     ['label' => 'Overzicht', 'url' => ['/country/index', ''] ],
